@@ -14,4 +14,10 @@ angular.module('birthdayApp')
       'AngularJS',
       'Karma'
     ];
-  });
+  })  
+  .controller('DOBController', ['$scope', function($scope){
+    $scope.calculate = function(dob) {
+      console.log(dob);
+      $scope.pacific = dob;
+    };
+  }]);
