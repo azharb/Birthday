@@ -16,8 +16,14 @@ angular.module('birthdayApp')
     ];
   })  
   .controller('DOBController', ['$scope', function($scope){
-    $scope.calculate = function(dob) {
-      console.log(dob);
-      $scope.pacific = dob;
+    $scope.calculate = function(birthday) {
+      if (typeof birthday !== 'undefined') {
+        var birthdate = new Date(birthday.date);
+        if (typeof birthday.time !== 'undefined') {
+          birthdate.setHours(birthday.time.getHours());
+          birthdate.setMinutes(birthday.time.getMinutes());
+        }
+        $scope.pacific = birthdate;
+      }
     };
   }]);
